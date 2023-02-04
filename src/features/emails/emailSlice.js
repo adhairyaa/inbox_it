@@ -1,10 +1,14 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
 const initialState = {
   emails: [],
   status: "idle",
 };
-export const getEmails = createAsyncThunk();
+export const getEmails = createAsyncThunk("emailList/getEmails", async () => {
+  const res = await axios.get("https://flipkart-email-mock.vercel.app/");
+  return res;
+});
 
 export const emailSlice = createSlice({
   name: "emailList",
@@ -23,3 +27,4 @@ export const emailSlice = createSlice({
     },
   },
 });
+export default emailSlice.reducer;
