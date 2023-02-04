@@ -1,7 +1,10 @@
 .email-card {
   border: #cfd2dc solid 1px;
-  height: 4rem;
-  padding: 5px;
+  height: 100px;
+  padding: 10px;
+  display: flex;
+  background-color: white;
+  border-radius: 5px;
 }
 .email-profile {
   background-color: #e54065;
@@ -12,4 +15,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.email-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+
+  align-items: flex-start;
 }
