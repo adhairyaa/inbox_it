@@ -7,7 +7,7 @@ const initialState = {
 };
 export const getEmails = createAsyncThunk("emailList/getEmails", async () => {
   const res = await axios.get("https://flipkart-email-mock.vercel.app/");
-  return res;
+  return res.data;
 });
 
 export const emailSlice = createSlice({
