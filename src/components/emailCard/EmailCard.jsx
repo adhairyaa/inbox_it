@@ -14,7 +14,7 @@ function EmailCard(emailData) {
         </div>
         <div className="email-subject">Subject : {emailInfo.subject}</div>
         <div className="email-description">{emailInfo.short_description}</div>
-        <div className="email-time">{emailInfo.date}.</div>
+        <div className="email-time">{emailInfo.date}</div>
       </div>
     </div>
   );
