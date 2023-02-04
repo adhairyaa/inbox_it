@@ -1,0 +1,15 @@
+.email-card {
+  border: #cfd2dc solid 1px;
+  height: 4rem;
+  padding: 5px;
+}
+.email-profile {
+  background-color: #e54065;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  color: #f4f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

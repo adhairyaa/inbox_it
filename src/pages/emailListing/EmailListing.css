@@ -1,3 +1,9 @@
 .email-listing-page {
   background-color: #f4f5f9;
 }
+
+.email-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
