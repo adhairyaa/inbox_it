@@ -1,19 +1,23 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./EmailCard.css";
-import { handleEmailClick } from "../../features/activeEmail/activeEmailSlice";
+import {
+  getActiveEmailBody,
+  handleEmailClick,
+} from "../../features/activeEmail/activeEmailSlice";
 function EmailCard(emailData) {
   const emailInfo = emailData.emailData;
   const { isEmailActive, emailBody, activeEmailData } = useSelector(
     (state) => state.activeEmail
   );
   const dispatch = useDispatch();
-  console.log(isEmailActive, emailBody, activeEmailData);
+
+  const handleEmailCardClick = () => {
+    dispatch(handleEmailClick({ payload: emailInfo }));
+    dispatch(getActiveEmailBody(emailInfo.id));
+  };
   return (
-    <div
-      className="email-card"
-      onClick={() => dispatch(handleEmailClick({ payload: emailInfo }))}
-    >
+    <div className="email-card" onClick={() => handleEmailCardClick()}>
       <div className="email-profile">
         {emailInfo.from.email.charAt(0).toUpperCase()}
       </div>

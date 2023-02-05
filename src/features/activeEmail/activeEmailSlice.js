@@ -5,6 +5,7 @@ const initialState = {
   isEmailActive: false,
   emailBody: null,
   activeEmailData: null,
+  status: "idle",
 };
 export const getActiveEmailBody = createAsyncThunk(
   "activeEmail/getActiveEmailBody",
@@ -23,6 +24,18 @@ export const activeEmailSlice = createSlice({
         ? (state.isEmailActive = true)
         : (state.isEmailActive = false);
       state.activeEmailData = action.payload.payload;
+    },
+  },
+  extraReducers: {
+    [getActiveEmailBody.pending]: (state) => {
+      state.status = "loading";
+    },
+    [getActiveEmailBody.fulfilled]: (state, action) => {
+      state.emailBody = action.payload;
+      state.status = "fulfilled";
+    },
+    [getActiveEmailBody.rejected]: (state) => {
+      state.status = "error";
     },
   },
 });
