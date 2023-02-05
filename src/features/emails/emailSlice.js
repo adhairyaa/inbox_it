@@ -19,7 +19,12 @@ export const emailSlice = createSlice({
       state.status = "loading";
     },
     [getEmails.fulfilled]: (state, action) => {
-      state.emails = action.payload;
+      let updatedEmail = action.payload.map((email) => ({
+        ...email,
+        isRead: false,
+        isFavorite: false,
+      }));
+      state.emails = updatedEmail;
       state.status = "fulfilled";
     },
     [getEmails.rejected]: (state) => {

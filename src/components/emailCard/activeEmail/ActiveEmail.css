@@ -2,8 +2,18 @@
   margin: 40px;
   background-color: white;
   border-radius: 5px;
-  padding: 10px;
+  padding: 20px;
   border: #cfd2dc solid 2px;
   width: 100% !important;
-  height: 100vh;
+  height: 100%;
+}
+
+.mark-favorite {
+  background-color: #e54065;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  padding: 5px;
+  width: 10rem;
+  cursor: pointer;
 }

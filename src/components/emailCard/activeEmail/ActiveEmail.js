@@ -6,9 +6,11 @@ function ActiveEmail() {
     (state) => state.activeEmail
   );
   console.log(emailBody);
+
   return (
     <>
-      {isEmailActive && (
+      {" "}
+      {status === "fulfilled" && isEmailActive && (
         <div className="active-email">
           <div>
             <div className="active-email-info">

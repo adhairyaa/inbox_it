@@ -16,6 +16,7 @@ function EmailCard(emailData) {
     dispatch(handleEmailClick({ payload: emailInfo }));
     dispatch(getActiveEmailBody(emailInfo.id));
   };
+  console.log(isEmailActive, emailBody, activeEmailData);
   return (
     <div className="email-card" onClick={() => handleEmailCardClick()}>
       <div className="email-profile">
