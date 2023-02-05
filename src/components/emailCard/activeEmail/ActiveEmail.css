@@ -1,0 +1,9 @@
+.active-email {
+  margin: 40px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  border: #cfd2dc solid 2px;
+  width: 100% !important;
+  height: 100vh;
+}
