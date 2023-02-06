@@ -14,7 +14,11 @@ export const filterSlice = createSlice({
     readFilter: (state) => {
       state.filterType = "IS_READ";
     },
+    unreadFilter: (state) => {
+      state.filterType = "IS_UNREAD";
+    },
   },
 });
 export default filterSlice.reducer;
-export const { markAsRead, markAsFavorite } = filterSlice.actions;
+export const { favoritesFilter, readFilter, unreadFilter } =
+  filterSlice.actions;
