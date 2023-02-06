@@ -1,11 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import "./Filter.css";
-import {
-  favoritesFilter,
-  unreadFilter,
-  readFilter,
-} from "../../../features/filter/filterSlice";
+import { addFilter } from "../../../features/filter/filterSlice";
 
 function Filter() {
   const dispatch = useDispatch();
@@ -17,7 +13,7 @@ function Filter() {
           name="filterButton"
           type="radio"
           id="readFilter"
-          onClick={() => dispatch(readFilter())}
+          onClick={() => dispatch(addFilter("IS_READ"))}
         ></input>
         <label for="readFilter">
           <p>Read</p>
@@ -26,7 +22,7 @@ function Filter() {
           name="filterButton"
           type="radio"
           id="unreadFilter"
-          onClick={() => dispatch(unreadFilter())}
+          onClick={() => dispatch(addFilter("IS_UNREAD"))}
         ></input>
         <label for="unreadFilter">
           <p>Unreads</p>
@@ -35,10 +31,19 @@ function Filter() {
           name="filterButton"
           type="radio"
           id="favoriteFilter"
-          onClick={() => dispatch(favoritesFilter())}
+          onClick={() => dispatch(addFilter("FAVORITE"))}
         ></input>
         <label for="favoriteFilter">
           <p>Favorites</p>
+        </label>
+        <input
+          name="filterButton"
+          type="radio"
+          id="showAllFilter"
+          onClick={() => dispatch(addFilter("SHOW_ALL"))}
+        ></input>
+        <label for="showAllFilter">
+          <p>All</p>
         </label>
       </div>
     </div>

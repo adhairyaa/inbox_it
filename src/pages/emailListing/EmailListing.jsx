@@ -19,6 +19,8 @@ function EmailListing() {
       filteredEmailList = emails.filter((email) => email.isRead === true);
     } else if (filter === "IS_UNREAD") {
       filteredEmailList = emails.filter((email) => email.isRead === false);
+    } else if (filter === "SHOW_ALL") {
+      filteredEmailList = emails;
     }
   };
   filterEmailList(filterType);

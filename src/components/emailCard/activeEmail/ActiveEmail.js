@@ -41,10 +41,14 @@ function ActiveEmail() {
               style={{
                 backgroundColor: currentEmail[0].isFavorite
                   ? "#e54065"
-                  : "#f2f2f2",
+                  : "grey",
               }}
             >
-              mark as favourite
+              {currentEmail[0].isFavorite ? (
+                <p>add favourite</p>
+              ) : (
+                <p>remove favorite</p>
+              )}
             </button>
           </div>
           <div className="active-email-body">{emailBody.body}</div>
