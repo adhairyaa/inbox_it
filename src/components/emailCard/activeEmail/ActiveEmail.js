@@ -6,6 +6,11 @@ function ActiveEmail() {
   const { isEmailActive, emailBody, activeEmailData, status } = useSelector(
     (state) => state.activeEmail
   );
+  const { emails } = useSelector((state) => state.emails);
+
+  const currentEmail = emails.filter(
+    (email) => email.id === activeEmailData.id
+  );
 
   const dispatch = useDispatch();
 
@@ -14,20 +19,25 @@ function ActiveEmail() {
       {" "}
       {status === "fulfilled" && isEmailActive && (
         <div className="active-email">
-          <div>
+          <div className="active-email-topbar">
             <div className="active-email-info">
               <div className="active-email-profile email-profile">
                 {activeEmailData.from.email.charAt(0).toUpperCase()}
               </div>
               <div className="active-email-subject">
-                {activeEmailData.subject}
+                <p>{activeEmailData.subject}</p>
+                <p>{activeEmailData.date}</p>
               </div>
-              <div className="active-email-date">{activeEmailData.date}</div>
             </div>
 
             <button
               className="mark-favorite"
               onClick={() => dispatch(markAsFavorite(activeEmailData.id))}
+              style={{
+                backgroundColor: currentEmail[0].isFavorite
+                  ? "#e54065"
+                  : "#f2f2f2",
+              }}
             >
               mark as favourite
             </button>

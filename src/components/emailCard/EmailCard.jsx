@@ -14,7 +14,7 @@ function EmailCard(emailData) {
   const dispatch = useDispatch();
 
   const handleEmailCardClick = () => {
-    dispatch(handleEmailClick({ payload: emailInfo }));
+    dispatch(handleEmailClick(emailInfo));
     dispatch(getActiveEmailBody(emailInfo.id));
     dispatch(markAsRead(emailInfo.id));
   };

@@ -17,7 +17,7 @@ function Filter() {
           name="filterButton"
           type="radio"
           id="readFilter"
-          onClick={dispatch(readFilter())}
+          onClick={() => dispatch(readFilter())}
         ></input>
         <label for="readFilter">
           <p>Read</p>
@@ -26,7 +26,7 @@ function Filter() {
           name="filterButton"
           type="radio"
           id="unreadFilter"
-          onClick={dispatch(unreadFilter())}
+          onClick={() => dispatch(unreadFilter())}
         ></input>
         <label for="unreadFilter">
           <p>Unreads</p>
@@ -35,7 +35,7 @@ function Filter() {
           name="filterButton"
           type="radio"
           id="favoriteFilter"
-          onClick={dispatch(favoritesFilter())}
+          onClick={() => dispatch(favoritesFilter())}
         ></input>
         <label for="favoriteFilter">
           <p>Favorites</p>

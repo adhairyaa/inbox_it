@@ -23,7 +23,7 @@ export const activeEmailSlice = createSlice({
       state.isEmailActive === false
         ? (state.isEmailActive = true)
         : (state.isEmailActive = false);
-      state.activeEmailData = action.payload.payload;
+      state.activeEmailData = action.payload;
     },
   },
   extraReducers: {

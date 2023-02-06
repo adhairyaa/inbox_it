@@ -1,5 +1,6 @@
 .active-email {
   margin: 40px;
+  margin-top: 120px;
   background-color: white;
   border-radius: 5px;
   padding: 20px;
@@ -9,11 +10,28 @@
 }
 
 .mark-favorite {
-  background-color: #e54065;
+  /* background-color: #e54065; */
   border: none;
   border-radius: 20px;
   color: white;
   padding: 5px;
   width: 10rem;
   cursor: pointer;
+}
+.active-email-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.active-email-info {
+  display: flex;
+  gap: 10px;
+}
+.active-email-subject {
+  display: flex;
+  flex-direction: column;
+}
+
+.active-email-body {
+  padding: 25px;
 }

@@ -21,7 +21,6 @@ export const emailSlice = createSlice({
           : email
       );
       state.emails = updatedEmail;
-      console.log("mrk clicked", updatedEmail);
     },
     markAsRead: (state, action) => {
       let isReadUpdatedEmail = state.emails.map((email) =>
