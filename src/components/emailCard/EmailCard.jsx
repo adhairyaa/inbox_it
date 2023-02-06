@@ -9,7 +9,7 @@ import {
 import { markAsRead } from "../../features/emails/emailSlice";
 function EmailCard(emailData) {
   const emailInfo = emailData.emailData;
-  const { isEmailActive, emailBody, activeEmailData } = useSelector(
+  const { isEmailActive, activeEmailData } = useSelector(
     (state) => state.activeEmail
   );
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ function EmailCard(emailData) {
       ? dispatch(openEmail(emailInfo))
       : activeEmailData.id === emailInfo.id
       ? dispatch(closeEmail())
-      : dispatch(openEmail());
+      : dispatch(openEmail(emailInfo));
     dispatch(getActiveEmailBody(emailInfo.id));
     dispatch(markAsRead(emailInfo.id));
   };

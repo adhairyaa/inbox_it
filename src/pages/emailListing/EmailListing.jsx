@@ -29,8 +29,7 @@ function EmailListing() {
       <Filter />
       <div className="email-cards">
         {status === "fulfilled" ? (
-          (filteredEmailList.length === 0 && <p>nothing to show here...</p>,
-          filteredEmailList.map((email) => <EmailCard emailData={email} />))
+          filteredEmailList.map((email) => <EmailCard emailData={email} />)
         ) : (
           <div>loading....</div>
         )}

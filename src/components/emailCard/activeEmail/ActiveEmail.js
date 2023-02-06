@@ -30,7 +30,7 @@ function ActiveEmail() {
                 {activeEmailData.from.email.charAt(0).toUpperCase()}
               </div>
               <div className="active-email-subject">
-                <p>{activeEmailData.subject}</p>
+                <p className="active-email-name">{activeEmailData.subject}</p>
                 <p>{dformat}</p>
               </div>
             </div>

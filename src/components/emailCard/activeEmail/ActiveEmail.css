@@ -29,8 +29,13 @@
 .active-email-subject {
   display: flex;
   flex-direction: column;
+  margin-top: -25px;
+  gap: 2px;
 }
 
 .active-email-body {
   padding: 25px;
+}
+.active-email-name {
+  font-size: 1.6rem;
 }
