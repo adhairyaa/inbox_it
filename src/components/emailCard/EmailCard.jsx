@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import "./EmailCard.css";
 import {
   getActiveEmailBody,
-  handleEmailClick,
+  openEmail,
+  closeEmail,
 } from "../../features/activeEmail/activeEmailSlice";
 import { markAsRead } from "../../features/emails/emailSlice";
 function EmailCard(emailData) {
@@ -14,10 +15,19 @@ function EmailCard(emailData) {
   const dispatch = useDispatch();
 
   const handleEmailCardClick = () => {
-    dispatch(handleEmailClick(emailInfo));
+    isEmailActive === false
+      ? dispatch(openEmail(emailInfo))
+      : activeEmailData.id === emailInfo.id
+      ? dispatch(closeEmail())
+      : dispatch(openEmail());
     dispatch(getActiveEmailBody(emailInfo.id));
     dispatch(markAsRead(emailInfo.id));
   };
+  const date = new Date(1582729505000),
+    dformat =
+      [date.getMonth() + 1, date.getDate(), date.getFullYear()].join("/") +
+      " " +
+      [date.getHours(), date.getMinutes()].join(":");
   return (
     <div
       className="email-card"
@@ -34,7 +44,7 @@ function EmailCard(emailData) {
         </div>
         <div className="email-subject">Subject : {emailInfo.subject}</div>
         <div className="email-description">{emailInfo.short_description}</div>
-        <div className="email-time">{emailInfo.date}</div>
+        <div className="email-time">{dformat}</div>
       </div>
     </div>
   );

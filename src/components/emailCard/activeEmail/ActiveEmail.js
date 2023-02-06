@@ -13,6 +13,11 @@ function ActiveEmail() {
   );
 
   const dispatch = useDispatch();
+  const date = new Date(1582729505000),
+    dformat =
+      [date.getMonth() + 1, date.getDate(), date.getFullYear()].join("/") +
+      " " +
+      [date.getHours(), date.getMinutes()].join(":");
 
   return (
     <>
@@ -26,7 +31,7 @@ function ActiveEmail() {
               </div>
               <div className="active-email-subject">
                 <p>{activeEmailData.subject}</p>
-                <p>{activeEmailData.date}</p>
+                <p>{dformat}</p>
               </div>
             </div>
 

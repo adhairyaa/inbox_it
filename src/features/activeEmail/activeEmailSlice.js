@@ -19,11 +19,13 @@ export const activeEmailSlice = createSlice({
   name: "activeEmail",
   initialState,
   reducers: {
-    handleEmailClick: (state, action) => {
-      state.isEmailActive === false
-        ? (state.isEmailActive = true)
-        : (state.isEmailActive = false);
+    openEmail: (state, action) => {
+      state.isEmailActive = true;
       state.activeEmailData = action.payload;
+      console.log("open email");
+    },
+    closeEmail: (state) => {
+      state.isEmailActive = false;
     },
   },
   extraReducers: {
@@ -40,5 +42,5 @@ export const activeEmailSlice = createSlice({
   },
 });
 
-export const { handleEmailClick } = activeEmailSlice.actions;
+export const { openEmail, closeEmail } = activeEmailSlice.actions;
 export default activeEmailSlice.reducer;
