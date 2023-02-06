@@ -19,7 +19,11 @@ function EmailCard(emailData) {
     dispatch(markAsRead(emailInfo.id));
   };
   return (
-    <div className="email-card" onClick={() => handleEmailCardClick()}>
+    <div
+      className="email-card"
+      onClick={() => handleEmailCardClick()}
+      style={{ backgroundColor: emailInfo.isRead ? "#f2f2f2" : "white" }}
+    >
       <div className="email-profile">
         {emailInfo.from.email.charAt(0).toUpperCase()}
       </div>
