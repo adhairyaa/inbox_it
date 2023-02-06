@@ -5,6 +5,7 @@ import {
   getActiveEmailBody,
   handleEmailClick,
 } from "../../features/activeEmail/activeEmailSlice";
+import { markAsRead } from "../../features/emails/emailSlice";
 function EmailCard(emailData) {
   const emailInfo = emailData.emailData;
   const { isEmailActive, emailBody, activeEmailData } = useSelector(
@@ -15,8 +16,8 @@ function EmailCard(emailData) {
   const handleEmailCardClick = () => {
     dispatch(handleEmailClick({ payload: emailInfo }));
     dispatch(getActiveEmailBody(emailInfo.id));
+    dispatch(markAsRead(emailInfo.id));
   };
-  console.log(isEmailActive, emailBody, activeEmailData);
   return (
     <div className="email-card" onClick={() => handleEmailCardClick()}>
       <div className="email-profile">

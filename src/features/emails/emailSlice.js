@@ -13,7 +13,24 @@ export const getEmails = createAsyncThunk("emailList/getEmails", async () => {
 export const emailSlice = createSlice({
   name: "emailList",
   initialState,
-  reducers: {},
+  reducers: {
+    markAsFavorite: (state, action) => {
+      let updatedEmail = state.emails.map((email) =>
+        email.id === action.payload
+          ? { ...email, isFavorite: !email.isFavorite }
+          : email
+      );
+      state.emails = updatedEmail;
+      console.log("mrk clicked", updatedEmail);
+    },
+    markAsRead: (state, action) => {
+      let isReadUpdatedEmail = state.emails.map((email) =>
+        email.id === action.payload ? { ...email, isRead: true } : email
+      );
+      state.emails = isReadUpdatedEmail;
+    },
+  },
+
   extraReducers: {
     [getEmails.pending]: (state) => {
       state.status = "loading";
@@ -33,3 +50,4 @@ export const emailSlice = createSlice({
   },
 });
 export default emailSlice.reducer;
+export const { markAsRead, markAsFavorite } = emailSlice.actions;

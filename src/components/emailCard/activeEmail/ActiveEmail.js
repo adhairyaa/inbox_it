@@ -1,11 +1,13 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./ActiveEmail.css";
+import { markAsFavorite } from "../../../features/emails/emailSlice";
 function ActiveEmail() {
   const { isEmailActive, emailBody, activeEmailData, status } = useSelector(
     (state) => state.activeEmail
   );
-  console.log(emailBody);
+
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -23,7 +25,12 @@ function ActiveEmail() {
               <div className="active-email-date">{activeEmailData.date}</div>
             </div>
 
-            <button className="mark-favorite">mark as favourite</button>
+            <button
+              className="mark-favorite"
+              onClick={() => dispatch(markAsFavorite(activeEmailData.id))}
+            >
+              mark as favourite
+            </button>
           </div>
           <div className="active-email-body">{emailBody.body}</div>
         </div>
