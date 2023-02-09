@@ -45,9 +45,9 @@ function ActiveEmail() {
               }}
             >
               {currentEmail[0].isFavorite ? (
-                <p>add favourite</p>
-              ) : (
                 <p>remove favorite</p>
+              ) : (
+                <p>add favourite</p>
               )}
             </button>
           </div>

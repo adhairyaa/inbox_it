@@ -44,7 +44,12 @@ function EmailCard(emailData) {
         </div>
         <div className="email-subject">Subject : {emailInfo.subject}</div>
         <div className="email-description">{emailInfo.short_description}</div>
-        <div className="email-time">{dformat}</div>
+        <div className="email-time">
+          {dformat}{" "}
+          {emailInfo.isFavorite && (
+            <span style={{ color: "#e54065" }}> favorite</span>
+          )}
+        </div>
       </div>
     </div>
   );
