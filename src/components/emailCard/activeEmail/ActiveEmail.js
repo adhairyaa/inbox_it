@@ -51,7 +51,9 @@ function ActiveEmail() {
               )}
             </button>
           </div>
-          <div className="active-email-body">{emailBody.body}</div>
+          <div className="active-email-body">
+            {emailBody.body.toString().substring(8)}
+          </div>
         </div>
       )}
     </>
